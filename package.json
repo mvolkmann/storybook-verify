@@ -5,8 +5,9 @@
     "cem": "custom-elements-manifest analyze --exclude ./storybook-static",
     "cem:watch": "custom-elements-manifest analyze --exclude ./storybook-static --watch",
     "dev": "vite",
-    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "storybook": "storybook dev -p 6006",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest"
@@ -22,6 +23,7 @@
     "@vitest/coverage-v8": "^3.2.4",
     "@wc-toolkit/storybook-helpers": "^9.0.1",
     "chromatic": "^13.1.4",
+    "gh-pages": "^6.3.0",
     "lit": "^3.3.1",
     "playwright": "^1.55.0",
     "storybook": "^9.1.3",

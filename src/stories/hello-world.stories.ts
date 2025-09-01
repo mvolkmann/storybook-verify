@@ -1,3 +1,7 @@
+import { getStorybookHelpers } from "@wc-toolkit/storybook-helpers";
+
+const { events, args, argTypes, template } = getStorybookHelpers("hello-world");
+
 import { expect, userEvent, waitFor } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
@@ -15,14 +19,19 @@ import "../hello-world.ts";
 const meta: Meta<HelloWorld> = {
   title: "Components/HelloWorld",
   component: "hello-world",
-  argTypes: {
-    name: { control: "text" },
+  args,
+  argTypes,
+  render: (args) => template(args),
+  parameters: {
+    actions: {
+      handles: events,
+    },
   },
   tags: ["autodocs"],
 };
 export default meta;
 
-type Story = StoryObj<HelloWorld>;
+type Story = StoryObj<HelloWorld & typeof args>;
 
 export const Default: Story = {
   play: ({ canvasElement }) => {

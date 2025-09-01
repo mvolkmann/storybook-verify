@@ -1,7 +1,15 @@
+import { setCustomElementsManifest } from "@storybook/web-components";
+import { setStorybookHelpersConfig } from "@wc-toolkit/storybook-helpers";
+import manifest from "../custom-elements.json" with { type: "json" };
+
+setCustomElementsManifest(manifest);
+setStorybookHelpersConfig({});
+
 /** @type { import('@storybook/web-components-vite').Preview } */
 const preview = {
   parameters: {
     controls: {
+      expanded: true,
       matchers: {
        color: /(background|color)$/i,
        date: /Date$/i,

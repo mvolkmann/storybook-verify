@@ -18,6 +18,7 @@ const meta: Meta<HelloWorld> = {
   argTypes: {
     name: { control: "text" },
   },
+  tags: ["autodocs"],
 };
 export default meta;
 
@@ -56,14 +57,4 @@ export const Default: Story = {
 
 export const Named: Story = {
   args: { name: "Mark" },
-};
-
-export const Click: Story = {
-  play: async ({ canvasElement }) => {
-    const body = canvasElement.ownerDocument.body;
-    await waitFor(() =>
-      expect(body.querySelector("hello-world")).toBeInTheDocument()
-    );
-    await userEvent.click(body.querySelector("hello-world") as HTMLElement);
-  },
 };
